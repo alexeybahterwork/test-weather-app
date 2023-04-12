@@ -1,0 +1,41 @@
+.forecast {
+  &_briefly_day {
+    &_item {
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+      list-style: none;
+      min-width: 100px;
+      width: 100px;
+      margin-right: 16px;
+      &_name {
+        font-size: 18px;
+      }
+
+      &_condition {
+        height: 25px;
+        line-height: 1em;
+      }
+
+      &_time {
+        font-size: 14px;
+      }
+
+      &_icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      &_temp {
+        display: flex;
+        align-items: center;
+      }
+
+      &_indicator {
+        display: flex;
+        align-items: center;
+        line-height: 1em;
+      }
+    }
+  }
+}

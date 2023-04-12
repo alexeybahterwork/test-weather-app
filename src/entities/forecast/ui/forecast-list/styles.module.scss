@@ -1,0 +1,17 @@
+.root {
+  margin-bottom: 16px;
+}
+.forecast {
+  height: 350px;
+  width: 100%;
+
+  &_briefly_day {
+    color: #222426;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding-bottom: 10px;
+    display: flex;
+    list-style: none;
+  }
+}

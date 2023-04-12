@@ -1,0 +1,9 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  &_selected {
+    background-color: #a6b2c3;
+
+  }
+}
