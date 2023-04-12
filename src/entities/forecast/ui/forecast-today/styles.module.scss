@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  margin: 16px 0;
+}
+
+.root {
+  max-width: 400px;
+  min-height: 260px;
+}
+
+.location_info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+
+  &_place {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.weather_info {
+  &_main {
+    display: flex;
+    align-items: center;
+
+    &_icon_condition {
+      margin: 0 14px;
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  &_condition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 16px;
+  }
+
+  &_secondary {
+    display: flex;
+    column-gap: 20px;
+    margin: 10px 0;
+    width: 100%;
+
+    div {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
