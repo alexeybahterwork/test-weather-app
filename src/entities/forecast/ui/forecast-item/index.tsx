@@ -7,6 +7,8 @@ import { conditionNames } from "shared/const";
 import { RiCelsiusFill } from "react-icons/ri";
 import { ForecastDay } from "../../../../shared/api";
 import { TbDropletFilled, TbTemperature, TbWind } from "react-icons/tb";
+import { isWeekendDay } from "../../../../shared/utils";
+import clsx from "clsx";
 
 export type ForecastItemProps = PropsWithChildren<{
   item: ForecastDay;
@@ -31,7 +33,10 @@ export const ForecastItem = ({ item }: ForecastItemProps) => {
 
   return (
     <div key={id} className={styles.forecast_briefly_day_item}>
-      <Text className={styles.forecast_briefly_day_item_name}>{day_name}</Text>
+      <Text
+        strong className={clsx([isWeekendDay(day_name) && styles.forecast_briefly_day_item_weekends, styles.forecast_briefly_day_item_name])}>
+        {day_name}
+      </Text>
       <Text className={styles.forecast_briefly_day_item_time}>{date}</Text>
       <WeatherIconByName icon={icon} className={styles.forecast_briefly_day_item_icon} />
       <div className={styles.forecast_briefly_day_item_condition}>{conditionNames[condition]}</div>
@@ -47,9 +52,12 @@ export const ForecastItem = ({ item }: ForecastItemProps) => {
         <Text>Max: {temp_max}</Text>
         <RiCelsiusFill size={14} />
       </div>
-        <div className={styles.forecast_briefly_day_item_indicator}><TbWind size={22} /><Text>{wind_speed} м/с</Text></div>
-        <div className={styles.forecast_briefly_day_item_indicator}><TbDropletFilled size={22} /><Text>{humidity}%</Text></div>
-        <div className={styles.forecast_briefly_day_item_indicator}><TbTemperature size={22} /><Text>{pressure_mm} мм.рт.ст.</Text></div>
+      <div className={styles.forecast_briefly_day_item_indicator}><TbWind size={22} /><Text>{wind_speed} м/с</Text>
+      </div>
+      <div className={styles.forecast_briefly_day_item_indicator}><TbDropletFilled size={22} /><Text>{humidity}%</Text>
+      </div>
+      <div className={styles.forecast_briefly_day_item_indicator}><TbTemperature
+        size={22} /><Text>{pressure_mm} мм.рт.ст.</Text></div>
 
     </div>
   );

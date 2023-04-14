@@ -9,3 +9,7 @@ export const shortenedDayNameByDate = (date: Date) => {
   const dayName: string = format(new Date(date), "EEEEEE", { locale: ru });
   return capitalize(dayName);
 };
+
+export const isWeekendDay = (day: string): boolean => {
+  return ["Сб", "Вс"].includes(day);
+}
