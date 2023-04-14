@@ -61,12 +61,11 @@ export const GeolocationRow = ({ forecast }: GeolocationRowProps) => {
         )}
         {!(editingGeolocationID === forecast.id) && (
           <Space>
+            {!forecast.selected && <Button type="dashed" onClick={onSelectForecast}>Выбрать</Button>}
             <Button
               onClick={onEditForecastNane}
               icon={<EditOutlined />}
             />
-            {!forecast.selected &&
-              <Button type="dashed" onClick={onSelectForecast}>Выбрать</Button>}
             <Button onClick={() => onDeleteForecast(forecast.id)} danger icon={<DeleteOutlined />} />
           </Space>
         )}
