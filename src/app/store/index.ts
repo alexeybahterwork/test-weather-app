@@ -1,9 +1,28 @@
-import { configureStore } from "@reduxjs/toolkit";
-
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import { forecastModel } from "entities/forecast";
 
-export const store = configureStore({
-  reducer: {
-    forecasts: forecastModel.reducer,
-  },
+const rootReducer = combineReducers({
+  forecasts: forecastModel.reducer
 });
+
+const persistConfig = {
+  key: "root",
+  storage,
+  whitelist: ['forecasts']
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+      }
+    })
+});
+
+export const persistor = persistStore(store);
