@@ -35,7 +35,7 @@ export const GeolocationForm = () => {
             autoComplete="off"
           >
             <Form.Item
-              label="Latitude"
+              label="Широта"
               name="lat"
               rules={[{ required: true, message: "Please input latitude!" }]}
             >
@@ -43,7 +43,7 @@ export const GeolocationForm = () => {
             </Form.Item>
 
             <Form.Item
-              label="Longitude"
+              label="Долгота"
               name="lon"
               rules={[{ required: true, message: "Please input longitude!" }]}
             >
