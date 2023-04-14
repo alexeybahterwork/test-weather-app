@@ -10,6 +10,19 @@
   margin: 0 auto;
   max-width: 900px;
   width: 100%;
+  &_loading {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: calc(100vh - 135px);
+    align-items: center;
+  }
+  &_geolocation_error {
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+    text-align: center;
+  }
 }
 
 .footer {

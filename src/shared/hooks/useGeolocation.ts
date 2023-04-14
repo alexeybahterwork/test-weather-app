@@ -6,8 +6,8 @@ export interface Geolocation {
 }
 
 export const useGeolocation = () => {
-  const [location, setGeolocation] = useState<Geolocation>();
-  const [locationError, setGeolocationError] = useState<GeolocationPositionError>();
+  const [geolocation, setGeolocation] = useState<Geolocation>();
+  const [geolocationError, setGeolocationError] = useState<GeolocationPositionError>();
 
   let mounted = true;
   let watchId: number;
@@ -24,6 +24,7 @@ export const useGeolocation = () => {
     setGeolocationError(error);
   };
 
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(onEvent, onError);
     watchId = navigator.geolocation.watchPosition(onEvent, onError);
@@ -34,5 +35,5 @@ export const useGeolocation = () => {
     };
   }, []);
 
-  return location;
+  return { geolocation, geolocationError};
 };
